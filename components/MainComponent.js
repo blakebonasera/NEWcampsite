@@ -23,5 +23,8 @@ class Main extends Component {
                 <Directory campsites={this.state.campsites} onPress={campsiteId => this.onCampsiteSelect(campsiteId)} />
                 <CampsiteInfo campsite={this.state.campsites.filter(campsite => campsite.id === this.state.selectedCampsite)[0]} />
             </View>
+        );
+    }
+}
 
 export default Main;

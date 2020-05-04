@@ -103,7 +103,6 @@ class CampsiteInfo extends Component {
 
     resetForm() {
         this.setState({
-            showRating,
             startingValue: 5,
             imageSize: 40,
         })
@@ -156,13 +155,15 @@ render() {
                     onChangeText={comment => this.setState({comment: comment})}
                     value={this.state.comment}
                     />
+                    <View style={styles.buttonView}>
                     <Button
                     onPress={() => {
                         this.handleComment(campsiteId);
                     }}
                     color='#5637DD'
                     title='Submit'/>
-                    <View >
+                    </View>
+                    <View style={styles.buttonView}>
                         <Button
                             onPress={() => {
                                 this.toggleModal();
@@ -220,6 +221,9 @@ const styles = StyleSheet.create({
     cardItem: {
         flex: 1,
         margin: 10
+    },
+    buttonView:{
+        padding: 10
     }
 });
 

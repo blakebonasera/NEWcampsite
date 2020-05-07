@@ -157,7 +157,9 @@ class CampsiteInfo extends Component {
 
     resetForm() {
         this.setState({
-            startingValue: 5,
+            rating: '',
+            author: '',
+            comment: '',
             imageSize: 40,
         })
     }
@@ -189,7 +191,7 @@ render() {
                 visible={this.state.onShowModal}
                 onRequestClose={() => this.toggleModal()}>
                 <View style={styles.modal}>
-                    <Rating
+                    <Rating 
                         startingValue= {this.state.rating}
                         showRating
                         onFinishRating={(rating)=>this.setState({rating: rating})} 
@@ -213,6 +215,8 @@ render() {
                     <Button
                     onPress={() => {
                         this.handleComment(campsiteId);
+                        this.toggleModal();
+                        this.resetForm();
                     }}
                     color='#5637DD'
                     title='Submit'/>

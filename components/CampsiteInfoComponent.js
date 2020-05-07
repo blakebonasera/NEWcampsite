@@ -28,6 +28,8 @@ function RenderCampsite(props) {
     const view = React.createRef();
 
     const recognizeDrag = ({dx}) => (dx < -200) ? true : false;
+    const recognizeComment = ({dx}) => (dx > 200) ?true:false;
+
 
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
@@ -55,6 +57,8 @@ function RenderCampsite(props) {
                     ],
                     { cancelable: false }
                 );
+            } else if (recognizeComment(gestureState)) {
+                props.onShowModal();
             }
             return true;
         }
@@ -76,6 +80,7 @@ function RenderCampsite(props) {
                 </Text>
                 <View style={styles.cardRow}>
                     <Icon 
+                        style={styles.cardItem}
                         name={props.favorite ? 'heart' : 'heart-o'}
                         type='font-awesome'
                         color='#f50'
@@ -84,7 +89,8 @@ function RenderCampsite(props) {
                         onPress={() => props.favorite ?
                             console.log('Already set as a favorite') : props.markFavorite()}
                     />
-                    <Icon style={styles.cardItem}
+                    <Icon 
+                        style={styles.cardItem}
                         name='pencil'
                         type='font-awesome'
                         color='#5637DD'
@@ -101,6 +107,7 @@ function RenderCampsite(props) {
 }
 
 function RenderComments({ comments }) {
+
 
     const renderCommentItem = ({ item }) => {
         return (

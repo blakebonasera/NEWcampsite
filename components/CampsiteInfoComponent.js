@@ -79,8 +79,7 @@ function RenderCampsite(props) {
                     {campsite.description}
                 </Text>
                 <View style={styles.cardRow}>
-                    <Icon 
-                        style={styles.cardItem}
+                    <Icon style={styles.cardItem}
                         name={props.favorite ? 'heart' : 'heart-o'}
                         type='font-awesome'
                         color='#f50'
@@ -89,8 +88,7 @@ function RenderCampsite(props) {
                         onPress={() => props.favorite ?
                             console.log('Already set as a favorite') : props.markFavorite()}
                     />
-                    <Icon 
-                        style={styles.cardItem}
+                    <Icon style={styles.cardItem}
                         name='pencil'
                         type='font-awesome'
                         color='#5637DD'
@@ -255,6 +253,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     modal: {
+        alignItems: 'center',
         justifyContent: 'center',
         margin: 20
     },
@@ -271,6 +270,7 @@ const styles = StyleSheet.create({
         margin: 10
     },
     cardRow: {
+        justifyContent: 'center',
         alignItems: 'center',
         flex: 1,
         flexDirection: 'row',
